@@ -14,9 +14,12 @@ accelerator:
     defaultValue: none
     inputType: select
     choices:
-      none: "No deployment artifacts"
-      knative: "Knative service resource"
-      kubernetes: "Kubernetes service and deployment resources"
+    - value: "none"
+      text:  "No deployment artifacts"
+    - value: "knative" 
+      text:  "Knative service resource"
+    - value: "kubernetes"
+      text:  "Kubernetes service and deployment resources"
   - name: includeSkaffold
     description: Include a skaffold configuration file
     dataType: boolean
