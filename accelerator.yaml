@@ -6,18 +6,27 @@ accelerator:
   - java
   - spring
 
+  # options for the UI
   options:
+  - name: deploymentType
+    description: Type of deployment resource artifacts to generate
+    dataType: string
+    defaultValue: none
+    inputType: select
+    choices:
+    - value: "none"
+      text:  "No deployment artifacts"
+    - value: "knative" 
+      text:  "Knative service resource"
+    - value: "kubernetes"
+      text:  "Kubernetes service and deployment resources"
   - name: includeSkaffold
-    label: Skaffold deployment
-    display: true
-    description: Toggle "On" to include skaffold Kubernetes deployment configurations.
-    inputType: toggle
+    description: Include a skaffold configuration file
     dataType: boolean
     defaultValue: false
-
-engine:
-  merge:
-  - include: [ "**/*" ]
-    exclude: [ "kubernetes/**/*.yaml", "skaffold.yaml" ]
-  - condition: "#includeSkaffold"
-    include: [ "kubernetes/**/*.yaml", "skaffold.yaml" ]
+    inputType: toggle
+  - name: serviceName
+    description: The name of the service
+    dataType: string
+    defaultValue: service-template
+    inputType: text
