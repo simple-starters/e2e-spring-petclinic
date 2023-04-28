@@ -20,11 +20,6 @@ accelerator:
       text:  "Knative service resource"
     - value: "kubernetes"
       text:  "Kubernetes service and deployment resources"
-  - name: includeSkaffold
-    description: Include a skaffold configuration file
-    dataType: boolean
-    defaultValue: false
-    inputType: toggle
   - name: serviceName
     description: The name of the service
     dataType: string
